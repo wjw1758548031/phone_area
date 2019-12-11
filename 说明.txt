@@ -1,0 +1,20 @@
+该数据库共包含360569条记录，涵盖了最新的170和171号段，可满足几乎所有的手机号码的归属地查询。
+
+数据文件的格式有两种：txt文件和sql文件，字符编码为utf8。
+
+更新时间：2018/05/18
+
+mysql中创建数据表：
+
+CREATE TABLE `mobile` (
+  `id` mediumint(8) unsigned NOT NULL AUTO_INCREMENT COMMENT '主键',
+  `phone` char(9) NOT NULL DEFAULT '' COMMENT '手机号码段',
+  `province` char(10) NOT NULL DEFAULT '' COMMENT '省份',
+  `city` char(10) NOT NULL DEFAULT '' COMMENT '市',
+  `service_provider` char(10) NOT NULL DEFAULT '' COMMENT '运营商',
+  `city_code` char(9) NOT NULL DEFAULT '' COMMENT '区号',
+  `postcode` char(9) NOT NULL DEFAULT '' COMMENT '邮编',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `phone` (`phone`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='全国手机号码段归属地';
+
